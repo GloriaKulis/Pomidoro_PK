@@ -1,0 +1,170 @@
+body{
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container{
+    width:100vw ;
+    height: 100vh;
+    background: #0095D9;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*---logo part---*/
+
+.left-side{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.title{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 130px;
+    line-height: 191px;
+    color: #FFFFFF;
+
+}
+.logo-container{
+    height: auto;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+
+
+}
+
+#tomato,#watch{
+    grid-row: 1/2;
+}
+
+#tomato{
+    grid-column: 1/4;
+}
+
+#watch{
+    grid-column: 3/8;
+}
+
+
+
+/*---login part---*/
+
+.login-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 35vh;
+}
+
+input{
+    background: #D9D9D9; 
+    border: none;
+    border-radius: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 61px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.25em;
+    width: 80%;
+    text-indent: 10px;
+}
+
+
+button{
+    font-family: 'Nunito', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: #88C057;
+    border-radius: 30px;
+    border: none;
+    min-height: 64px;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 41px;
+    text-align: center;
+    width: 80%;
+    margin-bottom: 0.25em;
+}
+
+form p{
+    text-align: center;
+    width: 80%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin:0;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+a{
+    text-decoration: none;
+    color: #702700;
+}
+
+@media only screen and (max-device-width: 420px) {
+    .container{
+        flex-direction: column;
+    }
+
+    *{
+        font-size: 2rem;
+    }
+    .login-container,.logo-container{
+        width: 100%;
+    }
+    .title{
+        margin-top:50% ;
+    }
+
+    form{
+        width: 80%;
+    }
+
+    input{
+        border-radius: 50px;
+        text-indent: 25px;
+        line-height: 3rem;
+        font-size: 1.75rem;
+    }
+
+    button{
+        min-height: 3rem;
+        font-size: 1.75rem;
+        border-radius: 50px;
+    }
+
+    form p{
+        font-size: 1.25rem;
+    }
+    a{
+        font-size: 1.25rem;
+    }
+}
+
+.no-valid{
+    border: red 5px solid;
+}
+
+
+
+
+

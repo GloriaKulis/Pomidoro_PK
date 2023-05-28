@@ -1,0 +1,58 @@
+
+nav .achievement{
+    background-color: #88C057;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+
+}
+.group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 5vh;
+}
+
+.achievement_icon{
+    width: 7vw;
+    border-radius: 100px;
+    border:none;
+}
+
+.achievement_text{
+    margin-left: 2rem;
+    height: 5rem;
+    width: 50%;
+    font-size: 2rem;
+    line-height: 5rem;
+    background: #D9D9D9;
+    border-radius: 30px;
+    border: none;
+    text-align: left;
+    text-indent: 20px;
+}
+
+@media only screen and (max-device-width: 420px){
+    .achievement_icon{
+        width: 20%;
+    }
+    .achievement_text{
+        font-size: 4rem;
+        line-height: 7rem;
+        height: 7rem;
+        width: 70%;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+nav .todolist{
+    background-color: #88C057;
+}
+
+main{
+    margin-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    height: 92vh;
+
+}
+
+.task_container{
+    height: 70%;
+}
+
+
+.label{
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+.todo_container{
+    margin-bottom: 2rem;
+}
+
+#add_new_task{
+    height: 4rem;
+    width: 80%;
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    border: none;
+    padding-left: 3vw;
+    text-align: left;
+    font-size: 2rem;
+
+}
+
+#save{
+    margin-left: 2rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 30px;
+    border:none;
+}
+
+
+.task_container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    overflow: auto;
+}
+
+.single_task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 80%;
+    min-height: 3.5rem;
+
+}
+
+.task_text{
+    min-height: 3.5rem;
+    width: 100%;
+    text-align: left;
+    font-size: 2rem;
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    border: none;
+    line-height: 3.5rem;
+    text-indent: 1rem;
+    overflow-wrap: break-word;
+}
+
+.mark{
+    border-radius: 100px;
+    border: 6px lightgray solid;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.inner-label{
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+}
+
+@media only screen and (max-device-width: 420px){
+    main{
+        margin-left: 3rem;
+        margin-right: 3rem;
+        width: calc(100vw - 6rem);
+    }
+    .label{
+        font-size: 5rem;
+    }
+
+    .add-new{
+        width: 100%;
+    }
+    .task_container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        overflow: auto;
+    }
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #add_new_task{
+        width: 97%;
+        font-size: 4rem;
+        line-height: 7rem;
+        height: 7rem;
+        margin-top: 2rem;
+    }
+    #save{
+        margin: 2rem 0;
+        width: 15rem;
+        height: 5rem;
+        font-size: 3rem;
+    }
+    .inner-label{
+        font-size: 3.5rem;
+    }
+    .mark{
+        width: 4rem;
+        height: 4rem;
+    }
+    .single_task{
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 5rem;
+        margin-bottom: 2rem;
+    }
+    .task_text{
+        line-height: 6rem;
+        font-size: 4rem;
+        overflow-wrap: anywhere;
+    }
+}

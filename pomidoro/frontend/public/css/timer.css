@@ -1,0 +1,198 @@
+body{
+    margin: 0;
+    font-family: 'Nunito', serif;
+}
+
+.base_container{
+    align-items:center;
+}
+
+main{
+    margin-top: 4em;
+    margin-bottom: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+}
+
+nav .timerbutton{
+    background-color: #88C057;
+}
+
+
+
+
+
+/*---Setter---*/
+form{
+    width: 40%;
+}
+
+.setter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 2.5rem;
+}
+
+.description{
+    font-size: 3rem;
+}
+
+.new{
+    height: 3rem;
+    background: #D9D9D9;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    font-size: 2rem;
+    width: 7rem;
+}
+
+#save{
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    height: 4rem;
+    width: 10rem;
+    font-size: 1.5rem;
+}
+
+/*---Timer---*/
+.timer{
+    justify-content: center;
+    align-items: center;
+}
+
+.tomato_holder{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+#timer_clock {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    width: 60%;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 3px solid black;
+}
+
+.timer_tomato{
+    height: 400px;
+}
+
+#timer_description{
+    text-align: center;
+    background-color: white;
+    border-radius: 30px;
+    font-family: Nunito, serif;
+    line-height: 2rem;
+    font-size: 1.25rem;
+    height: 2rem;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+
+/*---Footer---*/
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 5rem;
+}
+
+.footer-button{
+    width: 18rem;
+    height: 4rem;
+    border-radius: 30px;
+    border: none;
+    font-family: Nunito, serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.start{
+    background-color: #88C057;
+    border: #88C057;
+}
+.stop{
+    background-color:#D13834 ;
+    border: #D13834;
+}
+.reset{
+    background-color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+
+@media only screen and (max-device-width: 420px){
+    main{
+        flex-direction: column;
+        margin-bottom: 0;
+        height: 75vh;
+    }
+
+    .timer_tomato{
+        height: 30vh;
+    }
+    #timer_clock{
+        font-size: 4rem;
+        width: 60%;
+        line-height: 6rem;
+        border-radius: 100px;
+    }
+
+    #timer_description{
+        font-size: 3rem;
+        line-height: 4rem;
+        height: 4rem;
+    }
+
+
+    form{
+        order: 10;
+        width: 80vw;
+    }
+
+    .description{
+        font-size: 4rem;
+    }
+
+    .new{
+        font-size: 3rem;
+        line-height: 4rem;
+        height: 4rem;
+    }
+
+    #save{
+        font-size: 3rem;
+        line-height: 6rem;
+        height: 6rem;
+        width: 15rem;
+    }
+
+    footer{
+        flex-direction: column;
+        height: 20vh;
+        width: 80vw;
+    }
+    .footer-button{
+        font-size: 4rem;
+        width: 80vw;
+        height: 6rem;
+    }
+}

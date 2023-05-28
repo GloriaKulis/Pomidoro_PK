@@ -1,0 +1,76 @@
+
+#timer_clock {
+    /* position: absolute;
+    top: 85%;
+    left: 75%; */
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    width: 30%;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight:500;
+    border-radius: 30px;
+    border: 2px solid black;
+}
+
+.start{
+    background-color: #88C057;
+    border: #88C057;
+}
+.stop{
+    background-color:#D13834 ;
+    border: #D13834;
+}
+.reset{
+    background-color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 5rem;
+}
+
+.footer-button{
+    width: 12rem;
+    height: 3rem;
+    border-radius: 30px;
+    border: none;
+    font-family: Nunito, serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+.footer_timer {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+    margin-bottom: 5rem;
+    
+  }
+  
+  .timer {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
+  
+  .timer_tomato {
+    margin-right: 1rem;
+    
+  }
