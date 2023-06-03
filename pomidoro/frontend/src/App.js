@@ -1,16 +1,17 @@
 import { Route,Routes } from "react-router-dom";
-import Achievements from './achievements';
-import Registration from './registration';
-import Statistics from './statistics';
-import Timer from './timer';
-import ToDoList from './todolist';
-import Login from './login';
-import ManageUser from "./manage_user";
+import Achievements from './components/achievements';
+import Registration from './components/registration';
+import Statistics from './components/statistics';
+import Timer from './components/timer';
+import ToDoList from './components/todolist';
+import Login from './components/login';
+import ManageUser from "./components/manage_user";
+
 
 function App(){
 return(
+
     <Routes>
-        
         <Route path="" element={<Login />} />
         <Route path="/logout" element={<Login />} />
         <Route path="/timer" element={<Timer />} />
@@ -21,6 +22,7 @@ return(
         <Route path="/manageDB" element={<ManageUser/>} />
 
   </Routes>
+
 );
 
 

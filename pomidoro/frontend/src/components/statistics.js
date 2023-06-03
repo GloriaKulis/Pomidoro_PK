@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import axios from "axios";
 import Cookies from "js-cookie";
 import Chart from 'chart.js/auto';
-import TimerFooter from "./timer_footer";
+import TimerFooter from "./extra/timer_footer";
 
 class Statistics extends Component {
   constructor(props) {

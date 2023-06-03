@@ -5,7 +5,7 @@ import Configuration from "./extra/configuration";
 import { Helmet,HelmetProvider } from 'react-helmet-async';
 import axios from "axios";
 import Cookies from "js-cookie";
-import TimerFooter from "./timer_footer";
+import TimerFooter from "./extra/timer_footer";
 class Achievements extends Component{
 
     constructor(props) {

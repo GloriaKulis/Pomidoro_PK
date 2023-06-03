@@ -1,9 +1,8 @@
-import React from "react";
-import Configuration from "./extra/configuration";
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import axios from 'axios';
+import React from 'react';
+import Configuration from './extra/configuration';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { loginUser, setCookieAndNavigate } from '../actions/loginAction';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,36 +13,8 @@ const Login = () => {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
 
-
-    axios.post("http://localhost:8081/api/users/login", {
-      email: email,
-      password: password
-    }, {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    
-      .then(response => {
-        console.log(response);
-      })
-      .then(() => {
-        
-        axios.get("http://localhost:8081/api/users/id/" + email)
-          .then(response => {
-            const data = response.data;
-            Cookies.set("token", data);
-          })
-          .catch(error => {
-            console.error(error);
-          });
-    
-        navigate("/timer", { replace: true });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    
+    loginUser(email, password);
+    setCookieAndNavigate(email, navigate);
   };
 
   return (
@@ -57,6 +28,7 @@ const Login = () => {
       </HelmetProvider>
 
       <div className="container">
+        {/* Left Side */}
         <div className="left-side">
           <div className="title">Pomidoro</div>
           <div className="logo-container">
@@ -65,6 +37,7 @@ const Login = () => {
           </div>
         </div>
 
+        {/* Login Form */}
         <div className="login-container">
           <form className="login" onSubmit={handleSubmit}>
             <div className="messages"></div>
@@ -72,16 +45,21 @@ const Login = () => {
             <input
               name="email"
               type="text"
-              placeholder="Email@email.com"
+              placeholder="Email@example.com"
               autoComplete="on"
             />
-            <input name="password" type="password" placeholder="Haslo" autoComplete="on" />
-            <button type="submit" title="zaloguj">
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              autoComplete="on"
+            />
+            <button type="submit" title="Zaloguj">
               Zaloguj
             </button>
 
             <p>
-              Nie masz konta? <a href="registration" crossOrigin="anonymous">Zarejestruj</a>
+              Nie masz konta? <a href="registration">Zarejestruj</a>
             </p>
           </form>
         </div>

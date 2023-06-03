@@ -4,7 +4,7 @@ import Navigation from "./extra/navigation";
 import Configuration from "./extra/configuration";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import axios from "axios";
-import TimerFooter from "./timer_footer";
+import TimerFooter from "./extra/timer_footer";
 
 class ToDoList extends Component {
   state = {
