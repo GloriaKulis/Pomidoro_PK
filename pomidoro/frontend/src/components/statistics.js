@@ -6,6 +6,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Chart from 'chart.js/auto';
 import TimerFooter from "./extra/timer_footer";
+import { statisticsByUser } from "./extra/fetchData";
 
 class Statistics extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Statistics extends Component {
   }
 
   componentDidMount() {
+    // statisticsByUser(this.state);
     axios
       .get(`http://localhost:8081/api/tasks/countByWeek/${Cookies.get('token')}`)
       .then((response) => {
@@ -68,12 +70,10 @@ class Statistics extends Component {
       },
     };
 
-    // Sprawdź, czy istnieje poprzednia instancja wykresu i zniszcz ją
     if (this.chartInstance) {
       this.chartInstance.destroy();
     }
 
-    // Utwórz nową instancję wykresu Chart.js
     this.chartInstance = new Chart(this.chartRef.current, chartConfig);
   }
 
@@ -96,7 +96,9 @@ class Statistics extends Component {
               <canvas ref={this.chartRef} id="myChart"></canvas>
             </div>
           </main>
-          <TimerFooter/>
+          <div>
+            <TimerFooter/>
+          </div>
         </div>
       </div>
     );

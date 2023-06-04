@@ -3,11 +3,14 @@ import Configuration from './extra/configuration';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { loginUser, setCookieAndNavigate } from '../actions/loginAction';
 import { useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  localStorage.clear();
+  Cookies.remove('token');
   const handleSubmit = (event) => {
+
     event.preventDefault();
     const form = event.target;
     const email = form.elements.email.value;

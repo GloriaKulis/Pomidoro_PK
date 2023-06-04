@@ -3,8 +3,6 @@ import React from "react";
 import Configuration from "./extra/configuration";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-// import { useNavigate } from "react-router-dom";
-
 import axios from 'axios';
 
 
@@ -72,7 +70,7 @@ class ManageUser extends Component{
                     </div>
                 </div>
             </div>
-            /</div>
+          </div>
     );}
 }
 

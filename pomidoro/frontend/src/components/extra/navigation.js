@@ -1,13 +1,13 @@
-import Cookies from "js-cookie";
 
-function Navigation() {
-    const handleLogout = () => {
-      Cookies.remove('token');
-      window.localStorage.clear();
-    }
+import { Component } from "react";
 
-    
+class Navigation extends Component {
+
+
+
+render(){
     return (
+      <div>
       <nav>
         <div className="menu">
           <a href="timer" className="navbutton timerbutton">
@@ -26,13 +26,15 @@ function Navigation() {
             <span>Odznaki</span>
             <img className="button_mobile" alt="" src="public/images/navigation_mobile/achievement.svg" />
           </a>
-          <a href="logout" className="navbutton logout" onClick={handleLogout}>
+          <a href="/logout"  className="navbutton logout" onClick={ this.handleLogout}>
             <span>Wyloguj</span>
             <img className="button_mobile" alt="" src="public/images/navigation_mobile/logout.svg" />
           </a>
         </div>
       </nav>
+    </div>
     );
+}
   }
   
   export default Navigation;
