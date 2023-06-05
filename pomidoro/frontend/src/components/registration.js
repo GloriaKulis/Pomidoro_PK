@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Configuration from "./extra/configuration";
-import axios from 'axios';
-
+import { addUser,addUserDetails } from "../actions/fetchData";
 class Registration extends Component {
   constructor(props) {
     super(props);
@@ -26,43 +25,18 @@ class Registration extends Component {
   
     const { email, password, name, surname, confirmedPassword } = this.state;
   
-    // Sprawdź, czy hasła się zgadzają
     if (password !== confirmedPassword) {
       alert("Passwords do not match!");
       return;
     }
   
+
     try {
-      await axios.post("http://localhost:8081/api/users/add_user", {
-        email,
-        password,
-      });
-  
+      await addUser(email, password);
+      await addUserDetails(email, name, surname);
     } catch (error) {
-      // Obsłuż błędy występujące podczas żądania
       console.log(error);
     }
-  
-      const response = await axios.get(
-        "http://localhost:8081/api/users/id/" + email
-      );
-      const data = response.data;
-  
-      try {
-        await axios.post(
-          `http://localhost:8081/api/user_details/add_user_details/` + data,
-          {
-            name,
-            surname,
-          }
-        );
-  
-        // Obsłuż odpowiedź według potrzeb
-  
-      } catch (error) {
-        // Obsłuż błędy występujące podczas żądania
-        console.log(error);
-      }
 
   };
 

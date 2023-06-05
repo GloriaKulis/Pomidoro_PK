@@ -4,9 +4,10 @@ import Navigation from "./extra/navigation";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import axios from "axios";
 import Cookies from "js-cookie";
-import Chart from 'chart.js/auto';
+
 import TimerFooter from "./extra/timer_footer";
 import { statisticsByUser } from "../actions/fetchData";
+import { renderChart } from "../actions/chartStatistic";
 
 class Statistics extends Component {
   constructor(props) {
@@ -17,59 +18,15 @@ class Statistics extends Component {
   }
 
   componentDidMount() {
-    // statisticsByUser(this.state);
     axios
       .get(`http://localhost:8081/api/tasks/countByWeek/${Cookies.get('token')}`)
       .then((response) => {
         const data = response.data;
-        this.renderChart(data);
+        this.chartInstance = renderChart(this.chartRef, data);
       })
       .catch((error) => {
         console.error(error);
       });
-  }
-
-  renderChart(data) {
-
-    const days = data.map((item) => item[0]);
-    const count = data.map((item) => item[1]);
-
-    const chartData = {
-      labels: days,
-      datasets: [
-        {
-          label: "Statystyki dot. liczby wykonanych zadań",
-          data: count,
-          borderWidth: 1,
-          backgroundColor: "#88C057",
-          borderRadius: 20,
-          fontSize: 25,
-        },
-      ],
-    };
-
-    const chartConfig = {
-      type: "bar",
-      data: chartData,
-      options: {
-        plugins: {
-          customCanvasBackgroundColor: {
-            color: "#FFFFFF",
-          },
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    };
-
-    if (this.chartInstance) {
-      this.chartInstance.destroy();
-    }
-
-    this.chartInstance = new Chart(this.chartRef.current, chartConfig);
   }
 
   render() {

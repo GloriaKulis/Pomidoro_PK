@@ -77,17 +77,46 @@ export const setUpTimer = async () => {
 
 
 //Statistic
-export const statisticsByUser = () =>{
-  axios
-  .get(`http://localhost:8081/api/tasks/countByWeek/${Cookies.get('token')}`)
-  .then((response) => {
-    const data = response.data;
-    
-      this.renderChart();
-    
-  })
-  .catch((error) => {
+export const fetchDataForChart = async (token) => {
+  try {
+    const response = await axios
+      .get(`http://localhost:8081/api/tasks/countByWeek/${token}`);
+    return response.data;
+  } catch (error) {
     console.error(error);
-  });
+    return null;
+  }
+};
 
-} 
+//registration
+export const addUser = async (email, password) => {
+  try {
+    await axios.post("http://localhost:8081/api/users/add_user", {
+      email,
+      password,
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addUserDetails = async (email, name, surname) => {
+  try {
+    const response = await axios.get(
+      "http://localhost:8081/api/users/id/" + email
+    );
+    const data = response.data;
+
+    await axios.post(
+      `http://localhost:8081/api/user_details/add_user_details/` + data,
+      {
+        name,
+        surname,
+      }
+    );
+
+  } catch (error) {
+    console.log(error);
+  }
+};
