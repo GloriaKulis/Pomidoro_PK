@@ -1,48 +1,17 @@
 import React, { Component } from "react";
 import Navigation from "./extra/navigation";
 import Configuration from "./extra/configuration";
-import { setup } from "../actions/timerMechanism";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import Cookies from "js-cookie";
-import axios from 'axios';
 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
+import { setUpTimer } from "../actions/fetchData";
 import SettingsTimer from "./extra/settingsTimer";
 
 class Timer extends Component {
-  state = {
-    session_length: '',
-    break_length: '',
-    number_of_sessions: '',
-  }
+
 
   async componentDidMount() {
-    await axios.get('http://localhost:8081/api/timer/' + Cookies.get('token'))
-      .then(response => {
-        const data = response.data;
-        this.setState({
-          session_length: data.session_length,
-          break_length: data.break_length,
-          number_of_sessions: data.number_of_sessions
-        });
-
-        const timer = {
-          pomodoro: data.session_length,
-          breakTime: data.break_length,
-          sessionsNumber: data.number_of_sessions,
-          sessions: '',
-          description: '',
-          remainingTime: {
-            total: 1,
-            minutes: 1,
-            seconds: 1,
-          }
-        };
-        setup(timer);
-
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    setUpTimer();
   }
 
   render() {
@@ -81,7 +50,6 @@ class Timer extends Component {
             <button className="reset footer-button" id="reset-button">Reset</button>
           </footer>
         </div>
-        <script type="module" src="./js/timer.js" defer></script>
       </div>
     );
   }

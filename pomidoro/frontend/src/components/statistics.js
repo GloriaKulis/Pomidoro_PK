@@ -6,16 +6,14 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Chart from 'chart.js/auto';
 import TimerFooter from "./extra/timer_footer";
-import { statisticsByUser } from "./extra/fetchData";
+import { statisticsByUser } from "../actions/fetchData";
 
 class Statistics extends Component {
   constructor(props) {
     super(props);
     this.chartRef = React.createRef();
     this.chartInstance = null;
-    this.state = {
-      data: [],
-    };
+
   }
 
   componentDidMount() {
@@ -24,17 +22,14 @@ class Statistics extends Component {
       .get(`http://localhost:8081/api/tasks/countByWeek/${Cookies.get('token')}`)
       .then((response) => {
         const data = response.data;
-        this.setState({ data }, () => {
-          this.renderChart();
-        });
+        this.renderChart(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }
 
-  renderChart() {
-    const { data } = this.state;
+  renderChart(data) {
 
     const days = data.map((item) => item[0]);
     const count = data.map((item) => item[1]);

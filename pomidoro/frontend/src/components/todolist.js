@@ -122,8 +122,9 @@ class ToDoList extends Component {
                 })}
               </div>
             </div>
+            <TimerFooter/>
           </main>
-          <TimerFooter/>
+          
         </div>
       </div>
     );

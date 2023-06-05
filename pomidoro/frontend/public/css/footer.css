@@ -1,16 +1,14 @@
 
 #timer_clock {
-    /* position: absolute;
-    top: 85%;
-    left: 75%; */
-    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 72%;
     background-color: white;
     color: black;
-    width: 30%;
-    line-height: 3rem;
-    font-size: 2rem;
+    
+    line-height: 2rem;
+    font-size: 1.5rem;
     font-weight:500;
-    border-radius: 30px;
+    border-radius: 20px;
     border: 2px solid black;
 }
 
@@ -37,7 +35,7 @@
 
 .footer-button{
     width: 12rem;
-    height: 3rem;
+    height: 2.5rem;
     border-radius: 30px;
     border: none;
     font-family: Nunito, serif;
@@ -47,6 +45,9 @@
 
 
 .footer_timer {
+
+
+    height: 20%;
     display: flex;
     flex-direction: row;
     justify-content:center;
@@ -70,7 +71,3 @@
     margin-left: 2rem;
   }
   
-  .timer_tomato {
-    margin-right: 1rem;
-    
-  }

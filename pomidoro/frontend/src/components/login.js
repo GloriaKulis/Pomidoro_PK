@@ -1,7 +1,7 @@
 import React from 'react';
 import Configuration from './extra/configuration';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { loginUser, setCookieAndNavigate } from '../actions/loginAction';
+import { loginUser, setCookieAndNavigate } from '../actions/fetchData';
 import { useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie";
 

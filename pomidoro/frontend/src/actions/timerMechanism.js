@@ -27,7 +27,7 @@ export const setup = (timer) =>{
     function startTimer() {
       const endTime = Date.now() + timer.remainingTime.total * 1000;
       console.log(timer.pomodoro);
-    //   document.getElementById('timer_description').innerHTML = `${timer.description}`;
+      document.getElementById('timer_description').innerHTML = `${timer.description}`;
 
       interval = setInterval(function () {
         timer.remainingTime = getRemainingTime(endTime);
@@ -39,7 +39,7 @@ export const setup = (timer) =>{
               timer.sessions = 1;
               resetTimer();
               document.title = 'Nauka zakończona!';
-            //   document.getElementById('timer_description').innerHTML = 'Nauka zakończona!';
+              document.getElementById('timer_description').innerHTML = 'Nauka zakończona!';
               return;
             }
             switchMode('breakTime');
@@ -57,33 +57,35 @@ export const setup = (timer) =>{
     }
 
     function resetTimer() {
+      
       clearInterval(interval);
       switchMode(timer.mode);
     }
-        // Zapisywanie stanu timera w localStorage przed opuszczeniem strony
-window.addEventListener("beforeunload", () => {
-  localStorage.setItem("timerState", JSON.stringify(timer));
-});
 
-const savedTimerState = localStorage.getItem("timerState");
+    // Zapisywanie stanu timera w localStorage przed opuszczeniem strony
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("timerState", JSON.stringify(timer));
+  });
 
-if (savedTimerState) {
-  const parsedTimerState = JSON.parse(savedTimerState);
+  const savedTimerState = localStorage.getItem("timerState");
 
-  if (parsedTimerState.mode === "pomodoro") {
-    timer.remainingTime = parsedTimerState.remainingTime;
-    timer.sessions = parsedTimerState.sessions;
-    timer.description = `Sesja ${timer.sessions}`;
-  } else {
-    timer.mode = "breakTime";
-    timer.remainingTime = parsedTimerState.remainingTime;
-    timer.sessions = parsedTimerState.sessions;
-    timer.description = `Przerwa ${timer.sessions - 1}`;
+  if (savedTimerState) {
+    const parsedTimerState = JSON.parse(savedTimerState);
+
+    if (parsedTimerState.mode === "pomodoro") {
+      timer.remainingTime = parsedTimerState.remainingTime;
+      timer.sessions = parsedTimerState.sessions;
+      timer.description = `Sesja ${timer.sessions}`;
+    } else {
+      timer.mode = "breakTime";
+      timer.remainingTime = parsedTimerState.remainingTime;
+      timer.sessions = parsedTimerState.sessions;
+      timer.description = `Przerwa ${timer.sessions - 1}`;
+    }
+
+    updateClock();
+    startTimer();
   }
-
-  updateClock();
-  startTimer();
-}
 
     //updateuje zegar na stronie
     function updateClock() {

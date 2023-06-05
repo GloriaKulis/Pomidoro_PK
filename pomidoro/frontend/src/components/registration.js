@@ -23,31 +23,47 @@ class Registration extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
-    const { email, password, name, surname } = this.state;
-    const confirmedPassword = this.state.confirmedPassword;
-
-    // Check if the passwords match
+  
+    const { email, password, name, surname, confirmedPassword } = this.state;
+  
+    // Sprawdź, czy hasła się zgadzają
     if (password !== confirmedPassword) {
       alert("Passwords do not match!");
       return;
     }
-
+  
     try {
-      
-       await axios.post(`http://localhost:8081/api/user_details/add_user_details/{userId}`, {
+      await axios.post("http://localhost:8081/api/users/add_user", {
         email,
         password,
-        name,
-        surname
       });
-
-      // Handle the response as needed
-
+  
     } catch (error) {
-      // Handle any errors that occurred during the request
+      // Obsłuż błędy występujące podczas żądania
       console.log(error);
     }
+  
+      const response = await axios.get(
+        "http://localhost:8081/api/users/id/" + email
+      );
+      const data = response.data;
+  
+      try {
+        await axios.post(
+          `http://localhost:8081/api/user_details/add_user_details/` + data,
+          {
+            name,
+            surname,
+          }
+        );
+  
+        // Obsłuż odpowiedź według potrzeb
+  
+      } catch (error) {
+        // Obsłuż błędy występujące podczas żądania
+        console.log(error);
+      }
+
   };
 
   render() {
@@ -78,11 +94,11 @@ class Registration extends Component {
 
               <input name="email" type="text" placeholder="Email@email.com" value={email} onChange={this.handleInputChange} />
               <input name="password" type="password" placeholder="Haslo" value={password} onChange={this.handleInputChange} />
-              <input name="confirm-password" type="password" placeholder="Potwierdz haslo" value={confirmedPassword} onChange={this.handleInputChange} />
+              <input name="confirmedPassword" type="password" placeholder="Potwierdź hasło" value={confirmedPassword} onChange={this.handleInputChange} />
               <input name="name" type="text" placeholder="Imie" value={name} onChange={this.handleInputChange} />
               <input name="surname" type="text" placeholder="Nazwisko" value={surname} onChange={this.handleInputChange} />
               <button type="submit" title="zaloguj">Zarejestruj</button>
-              <p>Masz konto? <a href="login">Zaloguj</a></p>
+              <p>Masz konto? <a href="/">Zaloguj</a></p>
             </form>
           </div>
         </div>

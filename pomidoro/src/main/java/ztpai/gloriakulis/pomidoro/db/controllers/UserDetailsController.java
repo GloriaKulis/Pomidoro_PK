@@ -11,7 +11,7 @@ import ztpai.gloriakulis.pomidoro.db.repositories.UserDetailsRepository;
 import ztpai.gloriakulis.pomidoro.db.repositories.UserRepository;
 
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "User Details")
 @RestController
 @RequestMapping("api/user_details")
