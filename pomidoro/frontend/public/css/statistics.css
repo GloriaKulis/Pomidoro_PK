@@ -3,15 +3,17 @@ nav .statistics{
 }
 
 main{
-    height: 50vh;
-
+    height: 90vh;
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .canvas-container{
-    margin-top: 2%;
+    margin-top: 3.6%;
     margin-left: auto;
     margin-right: auto;
-    height: 20%;
+    height: 15%;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -20,7 +22,7 @@ main{
 canvas{
     background-color: #FFFFFF;
     border-radius: 20px;
-
+    
 }
 
 

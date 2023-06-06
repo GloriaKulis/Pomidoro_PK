@@ -57,7 +57,7 @@ class ToDoList extends Component {
         },
       })
       .then(() => {
-        this.fetchTasks(); // Ponowne pobranie zadań po oznaczeniu zadania jako zrobione
+        this.fetchTasks(); 
       })
       .catch((error) => {
         console.error(error);

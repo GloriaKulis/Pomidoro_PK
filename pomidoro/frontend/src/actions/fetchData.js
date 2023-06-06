@@ -18,21 +18,6 @@ export const loginUser = async (email, password) => {
 };
 
 
-const isAuthenticated = async () => {
-
-  const token = localStorage.getItem("token")
-
-  return await axios("http://localhost:8080/api/v1/auth/authenticate", {
-      headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-      }
-  }).then((res) => {
-      return res;
-  });
-}
-
-
 export const setCookieAndNavigate = async (email,navigate) =>{
 
   try{

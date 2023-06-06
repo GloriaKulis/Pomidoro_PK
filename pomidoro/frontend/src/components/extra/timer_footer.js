@@ -26,15 +26,16 @@ class TimerFooter extends Component {
               width="120"
               crossOrigin="anonymous"
             />
-          </div>
+          
 
-          <div className="timer">
-          <div id="timer_clock">
-            <span id="timer-minutes">25</span>
-            <span className="separator">:</span>
-            <span id="timer-seconds">00</span>
+            <div className="timer">
+              <div id="timer_clock">
+                <span id="timer-minutes">25</span>
+                <span className="separator">:</span>
+                <span id="timer-seconds">00</span>
+              </div>
+              <div id="timer_description">Sesja</div>
           </div>
-          <div id="timer_description">Sesja</div>
         </div>
         </div>
 

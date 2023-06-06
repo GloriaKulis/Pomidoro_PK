@@ -6,32 +6,32 @@ nav .achievement{
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    height: 92vh;
+    height: 50vh;
+    overflow: auto;
 
 }
 .group{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    width: 100vw;
-    margin: 5vh;
+    width: 90vw;
+    margin: 2vh;
 }
 
 .achievement_icon{
-    width: 7vw;
+    width: 4vw;
     border-radius: 100px;
     border:none;
 }
 
 .achievement_text{
     margin-left: 2rem;
-    height: 5rem;
-    width: 50%;
+    height: 3rem;
+    width: 60%;
     font-size: 2rem;
-    line-height: 5rem;
+    line-height: 3rem;
     background: #D9D9D9;
     border-radius: 30px;
     border: none;

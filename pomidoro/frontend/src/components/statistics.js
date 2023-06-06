@@ -6,7 +6,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 import TimerFooter from "./extra/timer_footer";
-import { statisticsByUser } from "../actions/fetchData";
 import { renderChart } from "../actions/chartStatistic";
 
 class Statistics extends Component {
@@ -41,17 +40,18 @@ class Statistics extends Component {
         <link rel ="stylesheet" type = "text/css" href="css/statistics.css"/>
         <link rel ="stylesheet" type = "text/css" href="css/extra/navigation.css"/>
         <Navigation />
-
+        <main>
         <div className="base_container">
-          <main>
+          
             <div className="canvas-container">
               <canvas ref={this.chartRef} id="myChart"></canvas>
             </div>
-          </main>
-          <div>
+            
             <TimerFooter/>
-          </div>
-        </div>
+            </div>
+          
+          </main>
+        
       </div>
     );
   }

@@ -20,6 +20,7 @@ class Timer extends Component {
         <Configuration />
         <link rel="stylesheet" type="text/css" href="css/timer.css" />
         <link rel="stylesheet" type="text/css" href="css/extra/navigation.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <HelmetProvider>
           <Helmet>
             <title>{"Pomidoro | Timer"}</title>

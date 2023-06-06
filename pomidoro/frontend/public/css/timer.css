@@ -58,7 +58,7 @@ form{
     border-radius: 30px;
     border: none;
     text-align: center;
-    height: 4rem;
+    height: 3rem;
     width: 10rem;
     font-size: 1.5rem;
 }
@@ -116,8 +116,8 @@ footer{
 }
 
 .footer-button{
-    width: 18rem;
-    height: 4rem;
+    width: 16rem;
+    height: 3rem;
     border-radius: 30px;
     border: none;
     font-family: Nunito, serif;
@@ -146,9 +146,6 @@ footer{
         height: 75vh;
     }
 
-    .timer_tomato{
-        height: 30vh;
-    }
     #timer_clock{
         font-size: 4rem;
         width: 60%;
@@ -181,7 +178,7 @@ footer{
     #save{
         font-size: 3rem;
         line-height: 6rem;
-        height: 6rem;
+        height: 2rem;
         width: 15rem;
     }
 

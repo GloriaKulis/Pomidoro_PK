@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 import ztpai.gloriakulis.pomidoro.db.entity.Achievement;
+import ztpai.gloriakulis.pomidoro.db.entity.User;
 import ztpai.gloriakulis.pomidoro.db.repositories.AchievementRepository;
 import ztpai.gloriakulis.pomidoro.db.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Tag(name = "Achievements")
 @RequestMapping("/api/achievements")
@@ -30,12 +32,21 @@ public class AchievementController {
 
     }
 
-//    TODO zrobić wysyłanie do bazy
-//    @PostMapping("/sendToDataBase/{userId}")
-//    public void sendToDatabaseByUserId(@PathVariable(value = "userId") Integer userId,
-//                               @RequestBody Integer achievementId){
-//
-//    }
+
+    @PostMapping("/sendToDataBase/{userId}")
+    public void sendToDatabaseByUserId(@PathVariable(value = "userId") Integer userId, @RequestBody Integer achievementId){
+        Optional<User> userFromDB = userRepository.findById(Long.valueOf(userId));
+        Optional<Achievement> achievement = achievementRepository.findById(achievementId);
+
+
+        achievement.get().getUser().add(userFromDB.get());
+
+
+        achievementRepository.save(achievement.get());
+
+        userFromDB.get().getAchievements().add(achievement.get());
+        userRepository.save(userFromDB.get());
+    }
 
 
 }
