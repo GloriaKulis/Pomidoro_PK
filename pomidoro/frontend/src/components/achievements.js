@@ -16,43 +16,36 @@ class Achievements extends Component{
       }
     
       componentDidMount() {
-        axios
-          .get("http://localhost:8081/api/achievements/getAchievements/" + Cookies.get('token'))
+        axios.get(`http://localhost:8081/api/achievements/getAchievements/${Cookies.get('token')}`)
           .then((response) => {
             this.setState({ achievements: response.data });
           })
           .catch((error) => {
             console.error(error);
           });
-
-
-
-          axios.get("http://localhost:8081/api/tasks/numberCompletedTask/" + Cookies.get('token'))
+      
+        axios.get(`http://localhost:8081/api/tasks/numberCompletedTask/${Cookies.get('token')}`)
           .then((response) => {
             const numberCompletedTask = response.data;
-            if (numberCompletedTask >= 5) {
-              axios.post(`http://localhost:8081/api/achievements/sendToDataBase/`+Cookies.get('token') , 2,{
-              headers: {
-                "Content-Type": "text/plain",
-              }
-            })
-                .then((response) => {
-                  console.log("halo");
+      
+            for (let i = 1; i <= 5; i++) {
+              if (numberCompletedTask >= i * 10) {
+                axios.post(`http://localhost:8081/api/achievements/sendToDataBase/${Cookies.get('token')}`, i.toString(), {
+                  headers: {
+                    "Content-Type": "text/plain",
+                  },
                 })
-                .catch((error) => {
-                  console.error(error);
-                });
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              }
             }
           })
           .catch((error) => {
             console.error(error);
           });
-        
-
-
-
-
       }
+      
     
 
 

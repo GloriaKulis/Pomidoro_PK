@@ -15,7 +15,7 @@ public interface TaskRepository extends JpaRepository<Task,Integer> {
 
 
     @Query("SELECT date_of_completion, COUNT(id_task) FROM Task WHERE user.id_user = :userId and date_of_completion " +
-            "between CURRENT_DATE-6 and CURRENT_DATE GROUP BY date_of_completion ORDER BY date_of_completion")
+            "between CURRENT_DATE-7 and CURRENT_DATE GROUP BY date_of_completion ORDER BY date_of_completion")
     List<Object[]> countTaskByWeek(@Param("userId") Integer userId);
 
 

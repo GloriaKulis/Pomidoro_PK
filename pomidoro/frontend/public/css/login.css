@@ -28,7 +28,7 @@ body{
     font-style: normal;
     font-weight: 600;
     font-size: 130px;
-    line-height: 191px;
+    line-height: 130px;
     color: #FFFFFF;
 
 }
@@ -128,8 +128,9 @@ a{
     *{
         font-size: 2rem;
     }
-    .login-container,.logo-container{
+    .logo-container{
         width: 100%;
+        display: none;
     }
     .title{
         margin-top:50% ;
